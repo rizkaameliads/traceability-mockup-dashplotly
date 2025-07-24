@@ -57,17 +57,26 @@ except json.JSONDecodeError:
 # For now, this will cause an error on Vercel, but it preserves the logic.
 # You will need to replace these paths with URLs.
 try:
-    # Example URL for a raw file on GitHub:
-    # peatland_url = 'https://raw.githubusercontent.com/your-username/your-repo/main/data/INDONESIA_PEATLAND_2017.zip'
-    # protected_areas_url = 'https://raw.githubusercontent.com/your-username/your-repo/main/data/Protected_Areas_Generalized.zip'
-    # defor_year_url = 'https://raw.githubusercontent.com/your-username/your-repo/main/data/Deforestation_Year_TMF.tif'
+    # --- STEP 1: Define the URLs to your raw data files ---
+    peatland_url = 'https://github.com/rizkaameliads/traceability-mockup-dashplotly/raw/refs/heads/main/assets/INDONESIA%20PEATLAND%202017.zip'
+    protected_areas_url = 'https://github.com/rizkaameliads/traceability-mockup-dashplotly/raw/refs/heads/main/assets/Protected_Areas_Generalized.zip'
+    defor_year_url = 'https://github.com/rizkaameliads/traceability-mockup-dashplotly/raw/refs/heads/main/assets/Deforestation_Year_TMF.tif'
 
-    # For demonstration, we'll create empty GeoDataFrames to avoid crashing the app on startup.
-    # You MUST replace this with actual data loading from URLs.
-    peatland_khGambut_gdf = gpd.GeoDataFrame([], geometry=[], crs="EPSG:4326")
-    protected_areas_gdf = gpd.GeoDataFrame([], geometry=[], crs="EPSG:4326")
-    # And handle the raster data gracefully
-    deforYear = None # This will be handled in the callback
+    # --- STEP 2: Read the vector data (like shapefiles) using GeoPandas ---
+    # GeoPandas can read directly from a URL.
+    peatland_khGambut_gdf = gpd.read_file(peatland_url)
+    peatland_khGambut_gdf = peatland_khGambut_gdf.to_crs(epsg=4326)
+
+    protected_areas_gdf = gpd.read_file(protected_areas_url)
+    protected_areas_gdf = protected_areas_gdf.to_crs(epsg=4326)
+
+    # --- STEP 3: Read the raster data (like .tif files) ---
+    # Rasterio needs a bit more help. We first get the file content with 'requests',
+    # then open it from memory.
+    response_raster = requests.get(defor_year_url)
+    response_raster.raise_for_status()
+    with rasterio.io.MemoryFile(response_raster.content) as memfile:
+        deforYear = memfile.open()
 
 except Exception as e:
     print(f"Error loading local data files: {e}")
