@@ -63,7 +63,6 @@ try:
     defor_year_url = 'https://github.com/rizkaameliads/traceability-mockup-dashplotly/raw/refs/heads/main/assets/Deforestation_Year_TMF.tif'
 
     # --- STEP 2: Read the vector data (like shapefiles) using GeoPandas ---
-    # GeoPandas can read directly from a URL.
     peatland_khGambut_gdf = gpd.read_file(peatland_url)
     peatland_khGambut_gdf = peatland_khGambut_gdf.to_crs(epsg=4326)
 
