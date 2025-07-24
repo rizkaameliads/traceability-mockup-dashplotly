@@ -60,7 +60,7 @@ try:
     # --- STEP 1: Define the URLs to your raw data files ---
     peatland_url = 'https://github.com/rizkaameliads/traceability-data/raw/refs/heads/main/assets/INDONESIA%20PEATLAND%202017.zip'
     protected_areas_url = 'https://github.com/rizkaameliads/traceability-data/raw/refs/heads/main/assets/Protected_Areas_Generalized.zip'
-    defor_year_url = 'https://github.com/rizkaameliads/traceability-data/raw/refs/heads/main/assets/Deforestation_Year_TMF.tif'
+    #defor_year_url = 'https://github.com/rizkaameliads/traceability-data/raw/refs/heads/main/assets/Deforestation_Year_TMF.tif'
 
     # --- STEP 2: Read the vector data (like shapefiles) using GeoPandas ---
     peatland_khGambut_gdf = gpd.read_file(peatland_url)
