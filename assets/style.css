@@ -1,0 +1,252 @@
+/* Import Open Sans from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap');
+
+/* --- General Body and Font Styling --- */
+body {
+    font-family: 'Open Sans', sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+    color: #495057;
+}
+
+/* --- Main Grid Layout --- */
+#root {
+    padding: 15px;
+    box-sizing: border-box;
+}
+
+/* --- Card Style for all components --- */
+.card {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    padding: 15px;
+    height: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+}
+
+/* --- Header & Title --- */
+.header-logo {
+    width: 90%;
+    height: auto;
+    align-self: center;
+}
+
+.main-title {
+    margin: 0;
+    color: #212529;
+    align-self: end;
+    font-weight: 600;
+}
+
+.sub-title {
+    margin: 0;
+    color: #6c757d;
+    font-size: 0.9em;
+}
+
+/* --- Filters and Buttons --- */
+.filter-container {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    padding: 15px;
+    height: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row; 
+    justify-content: center; 
+    align-items: flex-start; 
+    gap: 10px; 
+}
+
+.refresh-container {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    padding: 15px;
+    height: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10;
+}
+
+.control-title {
+    font-size: 12px;
+    font-weight: 600;
+    color: #343a40;
+    margin-top: 2px;
+}
+
+.refresh-button {
+    margin-top:3px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+    font-size: 12px;
+}
+
+.refresh-button:hover {
+    background-color: #0056b3;
+}
+
+/* --- Indicator Cards --- */
+.indicator-card {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    padding: 15px;
+    height: 100%;
+    display: flex;
+}
+
+/* --- Shared styles for both cards --- */
+.indicator-title,
+.indicator-value {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    padding: 8px 12px; /* A little less padding might look cleaner */
+    text-align: center;
+    height: 100%;
+    box-sizing: border-box;
+
+    /* ✨ This is the key for perfect centering */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* --- Specific styles for the title card --- */
+.indicator-title {
+    font-size: 12px;
+    font-weight: 600;
+    color: #495057;
+}
+
+/* --- Specific styles for the value card --- */
+.indicator-value {
+    font-size: 2.5em;
+    font-weight: 700;
+    color: #007bff;
+    margin: 0;
+}
+
+/* --- Chart Cards --- */
+.chart-card {
+    padding: 5px; /* Reduce padding to give graph more space */
+}
+.chart-title {
+    padding: 3px;
+    text-align: center;
+    font-size: 12px;
+    font-weight: 600;
+    color: #343a40;
+    margin-bottom: 10px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    padding: 15px;
+    height: 100%;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* --- List Cards (Alerts & Households) --- */
+.list-card {
+    overflow-y: auto;
+    font-size: 12px;
+}
+
+.list-title {
+    font-size: 12px;
+    font-weight: 600;
+    color: #343a40;
+    margin-bottom: 10px;
+    position: sticky;
+    top: -15px; /* Counteract card padding */
+    background: #ffffff;
+    padding: 15px 0 10px 0; /* Add padding back */
+    z-index: 1;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    padding: 15px;
+    height: 100%;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.list-item {
+    padding: 10px 5px;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.list-item:last-child {
+    border-bottom: none;
+}
+
+.list-item-header {
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.list-item-dot {
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 8px;
+    flex-shrink: 0;
+}
+
+.alert-item {
+     display: flex;
+     align-items: center;
+     padding: 10px 5px;
+     border-bottom: 1px solid #e9ecef;
+}
+
+.alert-item-dot {
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 8px;
+    flex-shrink: 0;
+}
+
+
+/* --- Map and Legend --- */
+.map-container {
+    border-radius: 8px;
+    overflow: hidden; /* Ensures map corners are rounded */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    padding: 15px;
+    height: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+}
